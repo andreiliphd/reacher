@@ -61,6 +61,8 @@ The observation space consists of 33 variables corresponding to position, rotati
 
 Follow the instructions in `Report.ipynb` to get started with training your agents!  
 
+The environment considered solved if each agent mean is above 30.0
+
 
 ---
 
