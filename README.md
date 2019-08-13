@@ -1,4 +1,4 @@
-# Banana - reinforcement learning DQN implementation
+# Reacher - reinforcement learning DDPG implementation
 ============
 
 Reacher is a reinforcement learning algorithm based on [DDPG paper](https://arxiv.org/pdf/1509.02971) with some modifications to improve performance of the model. In this environment, a double-jointed arm can move to target locations. 
