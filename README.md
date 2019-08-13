@@ -29,7 +29,7 @@ Reacher is a reinforcement learning algorithm based on [DDPG paper](https://arxi
 ## Setup
 Clone this repo: 
 ```
-git clone https://github.com/andreiliphd/reacher-ddpg-ppo.git
+git clone https://github.com/andreiliphd/reacher-ddpg.git
 ```
 Install all the dependencies.
 
