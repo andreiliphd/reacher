@@ -200,6 +200,23 @@ env = UnityEnvironment(file_name='Reacher_Windows_x86_64/Reacher.exe')
 
 #### 4.3 Setting parameters
 
+`BUFFER_SIZE = int(5e5)` - a buffer should be big to accumulate maximum experience for training.
+
+`BATCH_SIZE = 256` - big batch size mean more generic update during training. I also want to mention that batch size is used in random sampling and big batch size get more samples from `class ReplayBuffer`
+
+`GAMMA = 0.99` - discount factor. I have made this number big to slightly discount distant Q values.
+
+`TAU = 1e-3` - controlling how much two neural networks should be similar. And they are similar according to TAU ratio.
+
+`LR_ACTOR = 1e-3` - learning rate of `1e-3` is one of the optimal learning rates for `Adam` optimizer.
+
+`LR_CRITIC = 1e-3` - learning rate of `1e-3` is one of the optimal learning rates for `Adam` optimizer.
+
+`WEIGHT_DECAY = 0` - No weight decay is performing better in a DDPG implementation.
+
+`device = "cpu"` - torch 0.4.0 is compiled for CUDA 8.0 and in my case it causes a 3 minutes wait period for a PyTorch to understand that my GPU card is not supported.
+
+
 
 ```python
 BUFFER_SIZE = int(5e5)  # replay buffer size
@@ -223,6 +240,8 @@ brain = env.brains[brain_name]
 ```
 
 ####  4.5 Creating `class Actor` that will act on behalf of the agent
+
+Too shallow model and algorithm do not learn well and results are inconsistent. Too deep model and algorithm takes long time to converge. I have choosen this model because it has quite an optimal performance.
 
 
 ```python
@@ -264,6 +283,20 @@ class Actor(nn.Module):
 ```
 
 ####  4.5 Creating `class Critic` which "criticize" our `class Actor`
+
+This model gives a mediocre result. I stopped on that. 
+
+The most important part is `torch.cat`:
+
+```
+    def forward(self, state, action):
+        """Build a critic (value) network that maps (state, action) pairs -> Q-values."""
+        xs = F.relu(self.fcs1(state))
+        x = torch.cat((xs, action), dim=1)
+        x = F.relu(self.fc2(x))
+        return self.fc3(x)
+```
+It includes actions into `class Critic` to better forecast Q values.
 
 
 ```python
