@@ -43,17 +43,17 @@ conda activate reacher
 python -m ipykernel install --user --name drlnd --display-name "drlnd"
 ```
 
-Before running code in a notebook, change the kernel to match the `reacher` environment by using the drop-down Kernel menu.
+4. Before running code in a notebook, change the kernel to match the `reacher` environment by using the drop-down Kernel menu.
 
 ![Change Kernel](https://user-images.githubusercontent.com/10624937/42386929-76f671f0-8106-11e8-9376-f17da2ae852e.png)
 
-4. Install PyTorch 0.4.0:
+5. Install PyTorch 0.4.0:
 ```
 conda install pytorch=0.4.0 -c pytorch
 ```
-5. The rest of dependencies come with `Conda` environment by default.
+6. The rest of dependencies come with `Conda` environment by default.
 
-6. Enjoy DDPG algorithm in action!
+7. Enjoy DDPG algorithm in action!
 
 ---
 
