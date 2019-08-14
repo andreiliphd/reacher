@@ -27,11 +27,24 @@ Reacher is a reinforcement learning algorithm based on [DDPG paper](https://arxi
 ---
 
 ## Setup
-Clone this repo: 
+1. Clone this repo: 
 ```
 git clone https://github.com/andreiliphd/reacher-ddpg.git
 ```
-Install all the dependencies.
+
+2. Create and activate a new environment with Python 3.6.
+```
+conda create --name reacher python=3.6
+conda activate reacher
+```
+
+3. Create an IPython kernel for the `reacher` environment.
+```
+python -m ipykernel install --user --name drlnd --display-name "drlnd"
+```
+
+Before running code in a notebook, change the kernel to match the `reacher` environment by using the drop-down Kernel menu.
+![Change Kernel](https://user-images.githubusercontent.com/10624937/42386929-76f671f0-8106-11e8-9376-f17da2ae852e.png)
 
 ---
 
